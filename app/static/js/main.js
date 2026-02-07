@@ -26,3 +26,11 @@ flatpickr("#datetimepicker", {
     minuteIncrement: 5,
     allowInput: true
 });
+
+function openModal() {
+    document.getElementById("employeeModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("employeeModal").style.display = "none";
+}

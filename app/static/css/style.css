@@ -79,3 +79,8 @@ nav a { margin-right: 10px; }
 .nav-item{
     font-size: 20px;
 }
+
+.d-text{
+    display: flex;
+    width: 50%;
+}

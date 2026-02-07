@@ -3,6 +3,17 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SubmitField, SelectField, DateField, IntegerField, FloatField
 from wtforms.validators import DataRequired, Length
 from app.models.employees import Employee
+from app.models.jobs import Job
+from extensions import db
+
+
+def _job_choises():
+    return [
+        (j.job_id, j.job_title)
+        for j in db.session.scalars(
+            db.select(Job).order_by(Job.job_title)
+        )
+    ]
 
 GENDER_CHOICES = [
     ("Male", "Male"),
@@ -36,10 +47,11 @@ class EmployeeCreateForm(FlaskForm):
         validators=[DataRequired()]
     )
     
-    JOB_ID = IntegerField(
-        "Enter JOB_ID",
+    JOB_ID = SelectField(
+        "Job Title",
+        coerce=int,
         validators=[DataRequired()],
-        render_kw={"placeholder": "Enter JOB_ID references from job table"}
+        render_kw={"placeholder": "Select Job title"}
     )
     
     ADDRESS = StringField(
@@ -72,6 +84,10 @@ class EmployeeCreateForm(FlaskForm):
     
     submit = SubmitField("Save")
     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.JOB_ID.choices = _job_choises()
+    
 class EmployeeEditForm(FlaskForm):
     employeeName = StringField(
         "Employee Name",
@@ -91,10 +107,11 @@ class EmployeeEditForm(FlaskForm):
         validators=[DataRequired()]
     )
     
-    JOB_ID = IntegerField(
-        "Enter JOB_ID",
+    JOB_ID = SelectField(
+        "Job Title",
+        coerce=int,
         validators=[DataRequired()],
-        render_kw={"placeholder": "Enter JOB_ID references from job table"}
+        render_kw={"placeholder": "Select Job title"}
     )
     
     ADDRESS = StringField(
@@ -130,6 +147,7 @@ class EmployeeEditForm(FlaskForm):
     def __init__(self, original_emp: Employee, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.original_emp = original_emp
+        self.JOB_ID.choices = _job_choises()
     
 class EmployeeConfirmDeleteForm(FlaskForm):
     submit = SubmitField("Confirm Delete")

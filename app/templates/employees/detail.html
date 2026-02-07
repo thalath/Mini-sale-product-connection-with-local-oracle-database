@@ -5,42 +5,45 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="h3 mb-0">Employee Detail</h1>
     <div>
-        <a href="{{ url_for('employee.edit', employee_id=employee.employeeid) }}" 
+        <a href="{{ url_for('employees.edit', employee_id=employee.employeeid) }}" 
            class="btn btn-sm btn-outline-secondary">Edit</a>
         <a href="{{ url_for('employees.index') }}" 
            class="btn btn-sm btn-outline-primary">Back to list</a>
     </div>
 </div>
+    <dl class="row  p-6">
+        <dt class="col-sm-3">Employee ID:</dt>
+        <dd class="col-sm-9">{{ employee.employeeid }}</dd>
 
-<dl class="row">
-    <dt class="col-sm-3">Employee ID:</dt>
-    <dd class="col-sm-9">{{ employee.employeeid }}</dd>
+        <dt class="col-sm-3">Employee Name:</dt>
+        <dd class="col-sm-9">{{ employee.employeename }}</dd>
 
-    <dt class="col-sm-3">Employee Name:</dt>
-    <dd class="col-sm-9">{{ employee.employeename }}</dd>
+        <dt class="col-sm-3">Gender</dt>
+        <dd class="col-sm-9">{{ employee.gender }}</dd>
 
-    <dt class="col-sm-3">Gender</dt>
-    <dd class="col-sm-9">{{ employee.gender }}</dd>
+        <dt class="col-sm-3">Birth Date</dt>
+        <dd class="col-sm-9">{{ employee.birthdate }}</dd>
+            
+        <dt class="col-sm-3">JOB_ID</dt>
+        <dd class="col-sm-9">{{ employee.JOB_ID }}</dd>
+            
+            
+        <dt class="col-sm-3">Address</dt>
+        <dd class="col-sm-9">{{ employee.ADDRESS }}</dd>
 
-    <dt class="col-sm-3">Birth Date</dt>
-    <dd class="col-sm-9">{{ employee.birthdate }}</dd>
+        <dt class="col-sm-3">Phone Number: </dt>
+        <dd class="col-sm-9">{{ employee.PHONE }}</dd>
+        <dt class="col-sm-3">SALARY</dt>
+        <dd class="col-sm-9 text-success fw-bolder">{{ employee.SALARY }} $</dd>
+        <dt class="col-sm-3">Remark</dt>
+        <dd class="col-sm-9">{{ employee.REMARK }}</dd>
+        <dt class="col-sm-3">PHOTO</dt>
+        <dd class="col-sm-9"><img src="{{ url_for('employees.detail', employee_id=employee.employeeid) if employee.photo else url_for('static', filename='images/thalath.png') }}" width="150"></dd>
+    </dl>
     
-    <dt class="col-sm-3">JOB_ID</dt>
-    <dd class="col-sm-9">{{ employee.JOB_ID }}</dd>
     
+        <dl>
+            
+        </dl>
     
-    <dt class="col-sm-3">Address</dt>
-    <dd class="col-sm-9">{{ employee.ADDRESS }}</dd>
-
-    <dt class="col-sm-3">Phone Number: </dt>
-    <dd class="col-sm-9">{{ employee.PHONE }}</dd>
-    <dt class="col-sm-3">SALARY</dt>
-    <dd class="col-sm-9">{{ employee.SALARY }}</dd>
-    <dt class="col-sm-3">Remark</dt>
-    <dd class="col-sm-9">{{ employee.REMARK }}</dd>
-    <dt class="col-sm-3">PHOTO</dt>
-    <dd class="col-sm-9">{{ employee.PHOTO }}</dd>
-
-</dl>
-
 {% endblock %}

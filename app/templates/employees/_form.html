@@ -38,7 +38,7 @@
 
 <div class="mb-3">
     {{ form.JOB_ID.label(class="form-label") }}
-    {{ form.JOB_ID(class="form-control") }}
+    {{ form.JOB_ID(class="form-select") }}
     {% if form.JOB_ID.errors %}
     <div class="text-danger small">
         {% for error in form.JOB_ID.errors %}

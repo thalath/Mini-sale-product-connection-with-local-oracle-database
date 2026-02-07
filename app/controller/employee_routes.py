@@ -33,8 +33,8 @@ def create():
             "SALARY": form.SALARY.data or 0.00,
             "REMARK": form.REMARK.data or "Normal"
         }
+        photo = form.photo.data
         
-        photo = request.files.get("photo")
         
 
         emp = EmployeeService.create(data, photo)

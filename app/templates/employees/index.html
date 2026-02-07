@@ -4,7 +4,7 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3 mb-0">Employee</h1>
-    <a href="{{ url_for('employees.create') }}" class="btn btn-primary">Add New Employee</a>
+    <a href="{{ url_for('employees.create') }}" class="btn btn-primary">+ Add New Employee</a>
 </div>
 
 {% if employees %}
@@ -18,7 +18,7 @@
                 <th>GENDER</th>         
                 <th>BIRTHDATE</th>         
                 <th>SALARY</th>
-                <th>JOB_ID</th>
+                <th>JOB_TITLE</th>
                 <th>ADDRESS</th>
                 <th>PHONE</th>
                 <th>REMARKS</th>
@@ -35,11 +35,29 @@
                 <td>{{ employee.gender }}</td>
                 <td>{{ employee.birthdate }}</td>
                 <td>{{ employee.SALARY }}</td>
-                <td>{{ employee.JOB_ID }}</td>
+                <td>
+                    {% if employee.JOB_ID %}
+                    {{ employee.JOB_ID }}
+                        {% if employee.job_id|length > 1 %}
+                            <span class="text-warning small">(multiple)</span>
+                        {% endif %}
+                    {% else %}
+                        <span class="text-muted">No Job Title</span>
+                    {% endif %}
+                </td>
+                
                 <td>{{ employee.ADDRESS }}</td>
                 <td>{{ employee.PHONE }}</td>
                 <td>{{ employee.REMARK }}</td>
                 <td class="text-end">
+                    <!-- Detail -->
+                    <a 
+                        href="{{ url_for('employees.detail', employee_id = employee.employeeid) }}"
+                        class="btn btn-sm btn-success"
+                        title="Detail"
+                    >
+                    👁️
+                    </a>
                     <!-- Edit -->
                     <a 
                         href="{{ url_for('employees.edit', employee_id = employee.employeeid) }}"

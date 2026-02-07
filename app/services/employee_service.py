@@ -3,6 +3,7 @@ from typing import List, Optional
 from app.models.employees import Employee
 from werkzeug.datastructures import FileStorage
 
+
 class EmployeeService:
     
     @staticmethod
@@ -26,8 +27,8 @@ class EmployeeService:
             REMARK = data.get("REMARK", "Normal")
         )
         
-        if photo:
-            Employee.PHOTO = photo.read()
+        if photo and photo.filename:
+            emps.PHOTO = photo.read()   # ✅ THIS is the key line
         
         db.session.add(emps)    
         db.session.commit()
@@ -44,10 +45,8 @@ class EmployeeService:
         employee.SALARY = data["SALARY"]
         employee.REMARK = data["REMARK"]
         
-        if photo and photo.filename != "":
-            employee.PHOTO = photo.read()
-        else:
-            employee.PHOTO = None
+        if photo and photo.filename:
+            employee.PHOTO = photo.read()   # ✅ THIS is the key line
             
         db.session.commit()
         return employee
