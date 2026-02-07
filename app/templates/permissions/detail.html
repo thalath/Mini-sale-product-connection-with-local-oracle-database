@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+{% block title %}Detail Permission {{ permission.code }}{% endblock  %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0"> Permission: {{ permission.code }}</h1>
+    <div>
+        <a class="btn btn-warning" href="{{ url_for('permissions.edit', permission_id=permission.id) }}">
+            Edit
+        </a>
+        <a class="btn btn-danger" href="{{ url_for('permissions.delete_confirm', permission_id=permission.id) }}">
+            Delete
+        </a>
+        <a class="btn btn-secondary" href="{{ url_for('permissions.index', permission_id=permission.id) }}">
+            Back
+        </a>
+    </div>
+</div>
+<div class="card"> 
+    <div class="card-body">
+        <p> <strong>Code: </strong> {{ permission.name }} </p>
+        <p> <strong>Name: </strong> {{ permission.name }} </p>
+        <p> <strong>Module: </strong> {{ permission.module }} </p>
+        <p> <strong>Description: </strong> {{ permission.description or '-' }} </p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">Create a New Account</h4>
+            </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('auth.register') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input 
+                                type="text" 
+                                name="username"
+                                id="username"
+                                class="form-control"
+                                placeholder="Choose a username" 
+                                value="{{ username or '' }}"
+                                required
+                            > 
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email"
+                                class="form-control"
+                                placeholder="Your email address" 
+                                value="{{ email or '' }}" 
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="full_name" class="form-label">Full Name</label>
+                            <input 
+                                type="text" 
+                                name="full_name" 
+                                id="full_name"
+                                class="form-control"
+                                placeholder="Enter your full name" 
+                                value="{{ full_name or '' }}" 
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                required 
+                                placeholder="Enter a strong password" 
+                                class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input 
+                                type="password" 
+                                name="confirm_password" 
+                                id="confirm_password" 
+                                required
+                                placeholder="re-enter your password" 
+                                class="form-control"
+                            >
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-user-plus"></i> Sign Up</button>
+                        </div>
+                    </form>
+
+                    <p class="text-center mb-0 small">
+                        Already have an account?
+                        <a href="{{ url_for('auth.login') }}">Login in</a>
+                    </p>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

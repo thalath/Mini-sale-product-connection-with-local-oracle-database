@@ -1,0 +1,81 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial;
+}
+
+main.container {
+    max-width: 960px;
+}
+
+table td,
+table, th{
+    vertical-align: middle;
+}
+
+.login-button {
+    /* Basic Styling */
+    background-color: #ec5d04; /* A nice blue color */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to a hand on hover */
+    font-size: 16px;
+    width: 100%; /* Makes the button full width of its container */
+    margin-top: 5px; /* Spacing from the input fields */   
+    margin-left: 5px; /* Spacing from the input fields */   
+    
+    /* Hover Effect */
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.login-button:hover {
+    background-color: #11f446; /* Darker blue on hover */
+}
+
+/* Optional: Basic styling for the container and inputs */
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.form-container {
+    width: 300px;
+    margin: 20px auto;
+}
+
+nav a { margin-right: 10px; }
+
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+.shadow-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.nav-item{
+    font-size: 20px;
+}

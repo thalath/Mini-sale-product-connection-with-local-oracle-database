@@ -1,0 +1,105 @@
+{{ form.hidden_tag() }}
+
+<div class="mb-3">
+    {{ form.employeeName.label(class="form-label") }}
+    {{ form.employeeName(class="form-control") }}
+    {% if form.employeeName.errors %}
+    <div class="text-danger small">
+        {% for error in form.employeeName.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.gender.label(class="form-label") }}
+    {{ form.gender(class="form-select") }}
+    {% if form.gender.errors %}
+    <div class="text-danger small">
+        {% for error in form.gender.errors %}
+        <div>{{ error }} </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.birthdate.label(class="form-label") }}
+    {{ form.birthdate(class="form-control", type="date") }}
+    {% if form.birthdate.errors %}
+    <div class="text-danger small">
+        {% for error in form.birthdate.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.JOB_ID.label(class="form-label") }}
+    {{ form.JOB_ID(class="form-control") }}
+    {% if form.JOB_ID.errors %}
+    <div class="text-danger small">
+        {% for error in form.JOB_ID.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.ADDRESS.label(class="form-label") }}
+    {{ form.ADDRESS(class="form-control") }}
+    {% if form.ADDRESS.errors %}
+    <div class="text-danger small">
+        {% for error in form.ADDRESS.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.PHONE.label(class="form-label") }}
+    {{ form.PHONE(class="form-control") }}
+    {% if form.PHONE.errors %}
+    <div class="text-danger small">
+        {% for error in form.PHONE.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+<div class="mb-3">
+    {{ form.SALARY.label(class="form-label") }}
+    {{ form.SALARY(class="form-control") }}
+    {% if form.SALARY.errors %}
+    <div class="text-danger small">
+        {% for error in form.SALARY.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.PHOTO.label(class="form-label") }}
+    {{ form.PHOTO(class="form-control", type="file") }}
+    {% if form.PHOTO.errors %}
+    <div class="text-danger small">
+        {% for error in form.PHOTO.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+
+<div>
+    {{ form.submit(class="btn btn-primary") }}
+    <a href="{{ url_for('employees.index') }}" class="btn btn-secondary"> Cancel</a>
+</div>

@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+{% block title %}Employee Information{% endblock  %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Employee</h1>
+    <a href="{{ url_for('employees.create') }}" class="btn btn-primary">Add New Employee</a>
+</div>
+
+{% if employees %}
+<div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle shadow-sm">
+        <thead class="table-light">
+            <tr>
+                <th style="width: 50px">#</th>
+                <th>EMPLOYEEID</th>
+                <th>EMPLOYEENAME</th>
+                <th>GENDER</th>         
+                <th>BIRTHDATE</th>         
+                <th>SALARY</th>
+                <th>JOB_ID</th>
+                <th>ADDRESS</th>
+                <th>PHONE</th>
+                <th>REMARKS</th>
+                <th class="text-end" style="width: 160px">Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ loop.index }}</td>
+
+                <td>{{ employee.employeeid }}</td>
+                <td>{{ employee.employeename }}</td>
+                <td>{{ employee.gender }}</td>
+                <td>{{ employee.birthdate }}</td>
+                <td>{{ employee.SALARY }}</td>
+                <td>{{ employee.JOB_ID }}</td>
+                <td>{{ employee.ADDRESS }}</td>
+                <td>{{ employee.PHONE }}</td>
+                <td>{{ employee.REMARK }}</td>
+                <td class="text-end">
+                    <!-- Edit -->
+                    <a 
+                        href="{{ url_for('employees.edit', employee_id = employee.employeeid) }}"
+                        class="btn btn-sm btn-warning"
+                        title="Edit"
+                    >
+                    ✏️
+                    </a>
+
+                    <!-- Delete(go to custom delete confirmation page) -->
+                    <a 
+                        href="{{ url_for('employees.delete_confirm', employee_id = employee.employeeid) }}"
+                        class="btn btn-sm btn-danger"
+                        title="Delete"
+                    >
+                    🗑️
+                    </a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">
+    No users found
+    <a href="{{ url_for('employees.create') }}">Create the first user</a>.
+</div>
+{% endif %}
+
+{% endblock %}

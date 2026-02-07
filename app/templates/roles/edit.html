@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+{% block title %}Edit Role{% endblock  %}
+
+{%block content%}
+<div class="row">
+    <div class="col-lg-8 col-xl-7">
+        <div class="d-flex justify-content-between align-item-center mt-3">
+            <h3 class="mb-3">Edit Role: {{ role.name }}</h3>
+            <a class="btn btn-outline-secondary btn-sm" 
+               href="{{ url_for('roles.detail', role_id=role.id) }}"
+            >← Back to Detail</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                {% include "roles/_form.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

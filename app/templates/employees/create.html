@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+{% block title %}New Employee Information Form{% endblock  %}
+
+{% block content %}
+<h1 class="h3 mb-3">  </h1>
+<form method="post", novalidate, enctype="multipart/form-data", class="shadow-form">
+     <h1>New Employee Registration</h1>
+     <p>Please fill in all required information to complete your registration.</p>
+     <hr>
+     <h2>Personal Information</h2>
+     {% include "employees/_form.html" %}
+</form>
+{% endblock %}
