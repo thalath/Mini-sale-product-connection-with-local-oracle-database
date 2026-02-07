@@ -4,6 +4,7 @@ from app.forms.permission_forms import PermissionCreateForm, PermissionEditForm,
 from app.forms.employee_forms import (
     EmployeeCreateForm, EmployeeEditForm, EmployeeConfirmDeleteForm
 )
+from app.forms.job_forms import JobCreateForm, JobEditForm, JobConfirmDeleteForm
 
 __all__ = [
     "UserCreateForm", "UserEditForm", 
@@ -11,4 +12,5 @@ __all__ = [
     "RoleEditForm", "RoleConfirmDeleteForm", 
     "PermissionCreateForm", "PermissionEditForm", "PermissionConfirmDeleteForm",
     "EmployeeCreateForm", "EmployeeEditForm", "EmployeeConfirmDeleteForm"
+    "JobCreateForm", "JobEditForm", "JobConfirmDeleteForm"
 ]

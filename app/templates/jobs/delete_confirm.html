@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+{% block title %}Delete Job Department{% endblock  %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="h4 text-danger">Confirm Delete</h3>
+        
+        <p class="mt-3">Are you sure you want to delete the following Department?</p>
+
+        <ul class="list-group mb-3">
+            <li class="list-group-item"><strong>Job ID:</strong>{{ job.job_id }}</li>
+            <li class="list-group-item"><strong>Job Title:</strong>{{ job.job_title }}</li>
+            <li class="list-group-item"><strong>Minimum Salary:</strong>{{ job.min_salary }}</li>
+            <li class="list-group-item"><strong>maximum Salary:</strong>{{ job.max_salary }}</li>
+        </ul>
+
+        <form method="POST" action="{{ url_for('jobs.delete', job_id=job.job_id) }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit(class="btn btn-danger") }}
+            <a href="{{ url_for('jobs.index') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

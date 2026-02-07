@@ -27,12 +27,14 @@ def create_app(config_class: type[Config] = Config):
     from app.controller.permission_routes import permission_bp
     from app.controller.auth_routes import auth_bp
     from app.controller.employee_routes import employee_bp
+    from app.controller.job_routes import job_bp
    
     app.register_blueprint(user_bp)
     app.register_blueprint(role_bp)
     app.register_blueprint(permission_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(employee_bp)
+    app.register_blueprint(job_bp)
 
     # 👇 Add this block to "/" goes to the users list
     @app.route("/")

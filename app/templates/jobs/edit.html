@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+{% block title %}Edit Job{% endblock  %}
+
+{%block content%}
+<h1 class="h3 mb-3"> Update Job </h1>
+<form method="post", novalidate>
+    {% include "jobs/_form.html" %}
+</form>
+{% endblock %}

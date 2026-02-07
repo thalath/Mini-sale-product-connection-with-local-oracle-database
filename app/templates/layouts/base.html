@@ -55,6 +55,12 @@
                                     Employees
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ url_for('jobs.index') }}"
+                                class="nav-link text-white {% if request.blueprint == 'jobs' %}active{% endif %}">
+                                    Department
+                                </a>
+                            </li>
 
                             <!-- Add more items and it will scroll -->
                         </ul>

@@ -1,0 +1,42 @@
+{{ form.hidden_tag() }}
+
+<div class="mb-3">
+    {{ form.job_title.label(class="form-label") }}
+    {{ form.job_title(class="form-control") }}
+    {% if form.job_title.errors %}
+    <div class="text-danger small">
+        {% for error in form.job_title.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.min_salary.label(class="form-label") }}
+    {{ form.min_salary(class="form-control", type="number") }}
+    {% if form.min_salary.errors %}
+    <div class="text-danger small">
+        {% for error in form.min_salary.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<div class="mb-3">
+    {{ form.max_salary.label(class="form-label") }}
+    {{ form.max_salary(class="form-control", type="number") }}
+    {% if form.max_salary.errors %}
+    <div class="text-danger small">
+        {% for error in form.max_salary.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+<div>
+    {{ form.submit(class="btn btn-primary") }}
+    <a href="{{ url_for('jobs.index') }}" class="btn btn-secondary"> Cancel</a>
+</div>
