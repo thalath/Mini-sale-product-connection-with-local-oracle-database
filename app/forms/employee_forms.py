@@ -30,9 +30,9 @@ REMARK_CHOICES = [
 
 class EmployeeCreateForm(FlaskForm):
     employeeName = StringField(
-        "Employee Name",
+        "Full Name",
         validators=[DataRequired(), Length(min=3, max=50)],
-        render_kw={"placeholder": "Enter New Employee's Name"},
+        render_kw={"placeholder": "Enter employee name"},
     )
     
     gender = SelectField(
@@ -60,15 +60,15 @@ class EmployeeCreateForm(FlaskForm):
     )
     
     PHONE = StringField(
-        "Enter Phone number",
+        "Phone Number",
         validators=[DataRequired(), Length(max=15)],
-        render_kw={"placeholder": "Enter your phone. make that numberic are unique"}
+        render_kw={"placeholder": "Enter your phone"}
     )
     
     SALARY = FloatField(
-        "Enter Salary",
+        "Salary",
         validators=[DataRequired()],
-        render_kw={"placeholder": "Enter Salary references from JOB table"}
+        render_kw={"placeholder": "Enter Salary"}
     )
     
     REMARK = SelectField(
