@@ -24,3 +24,6 @@ class Job(db.Model):
                 raise ValueError("max_salary must be greater than min_salary")
 
         return value
+    
+    def __repr__(self):
+        return f"<Department: '{self.job_title}'>"
