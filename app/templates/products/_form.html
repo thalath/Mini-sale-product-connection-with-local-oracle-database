@@ -1,0 +1,129 @@
+{{ form.hidden_tag() }}
+
+<div class="mb-3">
+    {{ form.product_no.label(class="form-label") }}
+    {{ form.product_no(class="form-control") }}
+    {% if form.product_no.errors %}
+    <div class="text-danger small">
+        {% for error in form.product_no.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.productname.label(class="form-label") }}
+    {{ form.productname(class="form-control") }}
+    {% if form.productname.errors %}
+    <div class="text-danger small">
+        {% for error in form.productname.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.product_type.label(class="form-label") }}
+    {{ form.product_type(class="form-select") }}
+    {% if form.product_type.errors %}
+    <div class="text-danger small">
+        {% for error in form.product_type.errors %}
+        <div>{{ error }} </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.profit_percent.label(class="form-label") }}
+    {{ form.profit_percent(class="form-control") }}
+    {% if form.profit_percent.errors %}
+    <div class="text-danger small">
+        {% for error in form.profit_percent.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+
+
+<div class="mb-3">
+    {{ form.unit_meansure.label(class="form-label") }}
+    {{ form.unit_meansure(class="form-control") }}
+    {% if form.unit_meansure.errors %}
+    <div class="text-danger small">
+        {% for error in form.unit_meansure.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.reorder_level.label(class="form-label") }}
+    {{ form.reorder_level(class="form-control") }}
+    {% if form.reorder_level.errors %}
+    <div class="text-danger small">
+        {% for error in form.reorder_level.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.sell_price.label(class="form-label") }}
+    {{ form.sell_price(class="form-control") }}
+    {% if form.sell_price.errors %}
+    <div class="text-danger small">
+        {% for error in form.sell_price.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.cost_price.label(class="form-label") }}
+    {{ form.cost_price(class="form-control") }}
+    {% if form.cost_price.errors %}
+    <div class="text-danger small">
+        {% for error in form.cost_price.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.qty_on_hand.label(class="form-label") }}
+    {{ form.qty_on_hand(class="form-control") }}
+    {% if form.qty_on_hand.errors %}
+    <div class="text-danger small">
+        {% for error in form.qty_on_hand.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div class="mb-3">
+    {{ form.photo.label(class="form-label") }}
+    {{ form.photo(class="form-control", type="file") }}
+    {% if form.photo.errors %}
+    <div class="text-danger small">
+        {% for error in form.photo.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<div>
+    {{ form.submit(class="btn btn-primary") }}
+    <a href="{{ url_for('products.index') }}" class="btn btn-secondary"> Cancel</a>
+</div>

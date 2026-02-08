@@ -5,12 +5,14 @@ from app.forms.employee_forms import (
     EmployeeCreateForm, EmployeeEditForm, EmployeeConfirmDeleteForm
 )
 from app.forms.job_forms import JobCreateForm, JobEditForm, JobConfirmDeleteForm
+from app.forms.product_forms import ProductCreaateForm, ProductEditeForm, ProductConFirmDeleteForm
 
 __all__ = [
     "UserCreateForm", "UserEditForm", 
     "ConfirmDeleteForm", "RoleCreateForm", 
     "RoleEditForm", "RoleConfirmDeleteForm", 
     "PermissionCreateForm", "PermissionEditForm", "PermissionConfirmDeleteForm",
-    "EmployeeCreateForm", "EmployeeEditForm", "EmployeeConfirmDeleteForm"
-    "JobCreateForm", "JobEditForm", "JobConfirmDeleteForm"
+    "EmployeeCreateForm", "EmployeeEditForm", "EmployeeConfirmDeleteForm",
+    "JobCreateForm", "JobEditForm", "JobConfirmDeleteForm",
+    "ProductCreaateForm", "ProductEditeForm", "ProductConFirmDeleteForm"
 ]

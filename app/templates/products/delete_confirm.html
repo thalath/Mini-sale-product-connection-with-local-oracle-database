@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% block title %}Delete Product{% endblock  %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="h4 text-danger">Confirm Delete</h3>
+        
+        <p class="mt-3">Are you sure you want to delete the following Product?</p>
+
+        <ul class="list-group mb-3">
+            <li class="list-group-item"><strong>Product ID:</strong>{{ product.product_no }}</li>
+            <li class="list-group-item"><strong>Product Name:</strong>{{ product.productname }}</li>
+            <li class="list-group-item"><strong>Product type:</strong>{{ product.producttype }}</li>
+            <li class="list-group-item"><strong>Product profit_percent:</strong>{{ product.profit_percent }}</li>
+            <li class="list-group-item"><strong>Unit Meansure:</strong>{{ product.unit_meansure }}</li>
+            <li class="list-group-item"><strong>Reorder level:</strong>{{ product.reorder_level }}</li>
+            <li class="list-group-item"><strong>sell price:</strong>{{ product.sell_price }}</li>
+            <li class="list-group-item"><strong>cost price:</strong>{{ product.cost_price }}</li>
+            <li class="list-group-item"><strong>qty in Stock:</strong>{{ product.qty_on_hand }}</li>
+        </ul>
+
+        <form method="POST" action="{{ url_for('products.delete', product_id=product.product_no) }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit(class="btn btn-danger") }}
+            <a href="{{ url_for('products.index') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
