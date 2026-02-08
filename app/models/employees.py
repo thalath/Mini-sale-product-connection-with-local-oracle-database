@@ -4,7 +4,7 @@ from sqlalchemy import Identity
 class Employee(db.Model):
     __tablename__ ="EMPLOYEES"
     
-    employeeid = db.Column(db.Integer, Identity(start=1),  primary_key=True)
+    employeeid = db.Column(db.Integer,  primary_key=True)
     employeename = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(6))
     birthdate = db.Column(db.DATE)

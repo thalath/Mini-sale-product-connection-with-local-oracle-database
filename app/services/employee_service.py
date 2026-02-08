@@ -2,7 +2,7 @@ from extensions import db
 from typing import List, Optional
 from app.models.employees import Employee
 from werkzeug.datastructures import FileStorage
-
+from app.models.jobs import Job
 
 class EmployeeService:
     
@@ -15,17 +15,21 @@ class EmployeeService:
         return Employee.query.get(employee_id)
 
     @staticmethod
-    def create(data: dict, photo: FileStorage | None) -> Employee:
+    def create(data: dict, photo: FileStorage | None, JOB_ID: Optional[int] = None) -> Employee:
         emps = Employee(
             employeename = data["employeename"],
             gender = data.get("gender", "Male"),
             birthdate = data["birthdate"] or "DatePicker not found!",
-            JOB_ID = data["JOB_ID"],
             ADDRESS = data.get("ADDRESS") or "",
             PHONE = data["PHONE"],
             SALARY = data.get("SALARY") or 0.00,
             REMARK = data.get("REMARK", "Normal")
         )
+        
+        if JOB_ID:
+            jobs = db.session.get(Job, JOB_ID)
+            if jobs:
+                emps.JOB_ID = [jobs]
         
         if photo and photo.filename:
             emps.PHOTO = photo.read()   # ✅ THIS is the key line

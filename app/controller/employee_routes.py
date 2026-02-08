@@ -35,9 +35,9 @@ def create():
         }
         photo = form.PHOTO.data
         
-        
+        JOB_ID = form.JOB_ID.data or None
 
-        emp = EmployeeService.create(data, photo)
+        emp = EmployeeService.create(data, photo, JOB_ID)
         flash(f"Employee: '{emp.employeename}' was added successfully!", "success")
         return redirect(url_for("employees.index"))
     

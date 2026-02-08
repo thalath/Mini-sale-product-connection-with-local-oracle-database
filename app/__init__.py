@@ -41,7 +41,7 @@ def create_app(config_class: type[Config] = Config):
     # 👇 Add this block to "/" goes to the users list
     @app.route("/")
     def home():
-        return redirect(url_for('users.index'))
+        return redirect(url_for('products.index'))
 
     # Create tables
     with app.app_context():
