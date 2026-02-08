@@ -1,7 +1,7 @@
 from extensions import db
 from sqlalchemy import Identity
 
-class Client(db.Model):
+class Client_type(db.Model):
     __tablename__ = "client_type"
 
     client_type = db.Column(db.Integer, nullable=False, primary_key=True)

@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %}
+{% block title %}Product {{ product.productnamr }}{% endblock  %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Product Detail</h1>
+    <div>
+        <a href="{{ url_for('products.edit', product_id=product.product_no) }}" 
+           class="btn btn-sm btn-outline-secondary">Edit</a>
+        <a href="{{ url_for('products.index') }}" 
+           class="btn btn-sm btn-outline-primary">Back to list</a>
+    </div>
+</div>
+
+<dl class="row">
+    <dt class="col-sm-3">Product ID</dt>
+    <dd class="col-sm-9">{{ product.product_no }}</dd>
+
+    <dt class="col-sm-3">Product Name</dt>
+    <dd class="col-sm-9">{{ product.productname }}</dd>
+
+    <dt class="col-sm-3">Product Type</dt>
+    <dd class="col-sm-9">{{ product.producttype }}</dd>
+
+    <dt class="col-sm-3">Profit_percent</dt>
+    <dd class="col-sm-9">{{ product.profit_percent }}</dd>
+
+
+    <dt class="col-sm-3">Unit Meansure</dt>
+    <dd class="col-sm-9">{{ product.unit_meansure }}</dd>
+    
+    <dt class="col-sm-3">reorder_level</dt>
+    <dd class="col-sm-9">{{ product.reorder_level }}</dd>
+
+    <dt class="col-sm-3">sell_price</dt>
+    <dd class="col-sm-9">{{ product.sell_price }}</dd>
+
+    <dt class="col-sm-3">cost_price</dt>
+    <dd class="col-sm-9">{{ product.cost_price }}</dd>
+
+    <dt class="col-sm-3">qty_on_hand</dt>
+    <dd class="col-sm-9">{{ product.qty_on_hand }}</dd>
+
+</dl>
+
+{% endblock %}

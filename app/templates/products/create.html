@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+{% block title %}Create Product{% endblock  %}
+
+{% block content %}
+<h1 class="h3 mb-3"> Create Products </h1>
+<form method="post", novalidate>
+     {% include "products/_form.html" %}
+</form>
+{% endblock %}
